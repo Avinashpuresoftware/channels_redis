@@ -78,6 +78,7 @@ jobs:
                 python3.8 --version && \
                 uname -m && \
                 apt-get install libpq-dev -y libxml2-dev -y libxslt1-dev -y python-dev -y && \
+                apt-get install gcc-aarch64-linux-gnu -y && \
                 python3.8 -m pip install backports.zoneinfo && \
                 python3.8 -m pip install --upgrade pip wheel setuptools tox && \
                 python3.8 setup.py install && \
