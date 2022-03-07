@@ -82,6 +82,8 @@ jobs:
                 python3.8 -m pip install backports.zoneinfo && \
                 python3.8 -m pip install --upgrade pip wheel setuptools tox && \
                 python3.8 setup.py install && \
+                apt install redis-server && \
+                service redis-server start && \
                 tox -e py38 && \
                 deactivate'
                 
