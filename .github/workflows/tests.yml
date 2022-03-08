@@ -61,6 +61,29 @@ jobs:
       matrix:
         python-version: [ 3.8]
       fail-fast: false
+     services:
+      redis:
+        image: redis
+        ports:
+         - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      sentinel:
+        image: bitnami/redis-sentinel
+        ports:
+          - 26379:26379
+        options: >-
+          --health-cmd "redis-cli -p 26379 ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          REDIS_MASTER_HOST: redis
+          REDIS_MASTER_SET: sentinel
+          REDIS_SENTINEL_QUORUM: "1"
      steps:
       - uses: actions/checkout@v2
       - name: Set up QEMU
@@ -82,8 +105,6 @@ jobs:
                 python3.8 -m pip install backports.zoneinfo && \
                 python3.8 -m pip install --upgrade pip wheel setuptools tox && \
                 python3.8 setup.py install && \
-                apt install redis-server -y && \
-                service redis-server start && \
                 tox -e py38 && \
                 deactivate'
                 
