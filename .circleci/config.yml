@@ -15,7 +15,6 @@ jobs:
           name: ️️🏗️ pip dev requirements
           command: |
            sudo apt-get update && sudo apt-get --allow-downgrades install python3 python3-pip 
-           export DEBIAN_FRONTEND=noninteractive && sudo apt-get install --allow-downgrades tzdata && dpkg-reconfigure --frontend noninteractive tzdata
            sudo apt-get install libpq-dev --allow-downgrades libxml2-dev --allow-downgrades libxslt1-dev --allow-downgrades python3-dev --allow-downgrades
            sudo apt-get install gcc-aarch64-linux-gnu --allow-downgrades 
            python3 -m pip install backports.zoneinfo
@@ -37,7 +36,6 @@ jobs:
           command: |
             uname -m
             sudo apt-get update && sudo apt-get --allow-downgrades install python3 python3-pip 
-            export DEBIAN_FRONTEND=noninteractive && sudo apt-get install --allow-downgrades tzdata && dpkg-reconfigure --frontend noninteractive tzdata
             sudo apt-get install libpq-dev --allow-downgrades libxml2-dev --allow-downgrades libxslt1-dev --allow-downgrades python3-dev --allow-downgrades
             sudo apt-get install gcc-aarch64-linux-gnu --allow-downgrades 
             python3 -m pip install backports.zoneinfo
