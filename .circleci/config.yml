@@ -21,7 +21,7 @@ jobs:
            python3 -m pip install --upgrade pip wheel setuptools tox 
            python3 setup.py install 
            sudo apt install redis-server --allow-downgrades
-           systemctl start redis-server.service 
+           sudo service redis-server start 
            tox -e py38
   build-medium-arm64:
     machine:
@@ -42,7 +42,7 @@ jobs:
             python3 -m pip install --upgrade pip wheel setuptools tox 
             python3 setup.py install 
             sudo apt install redis-server --allow-downgrades
-            systemctl start redis-server.service 
+            sudo service redis-server start 
             tox -e py38
                     
 
