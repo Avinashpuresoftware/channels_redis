@@ -25,6 +25,7 @@ jobs:
            export REDIS_SENTINEL_QUORUM=1 
            sudo apt install redis-server --allow-downgrades
            sudo apt-get install redis-sentinel --allow-downgrades
+           redis-sentinel /etc/redis/sentinel.conf
            sudo service redis-server start
            pip3 install tox 
            tox -e py38
