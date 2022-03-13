@@ -26,7 +26,6 @@ jobs:
            sudo apt install redis-server --allow-downgrades
            sudo service redis-server start
            sudo apt-get install redis-sentinel --allow-downgrades
-           sudo redis-sentinel ~/sentinel.conf
            pip3 install tox 
            tox -e py38
   build-medium-arm64:
