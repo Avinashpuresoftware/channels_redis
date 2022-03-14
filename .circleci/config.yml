@@ -20,6 +20,7 @@ jobs:
            python3 -m pip install backports.zoneinfo
            python3 -m pip install --upgrade pip wheel setuptools tox 
            python3 setup.py install
+           python3 -m pip install -U channels
            export REDIS_MASTER_HOST=redis
            export REDIS_MASTER_SET=sentinel
            export REDIS_SENTINEL_QUORUM=1 
